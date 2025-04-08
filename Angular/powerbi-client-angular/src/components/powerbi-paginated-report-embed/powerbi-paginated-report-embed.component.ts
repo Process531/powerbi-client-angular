@@ -11,8 +11,9 @@ import { isEmbedSetupValid } from '../../utils/utils';
  * Paginated report component to embed the entity, extends the Base component
  */
 @Component({
-  selector: 'powerbi-paginated-report[embedConfig]',
-  template: '<div class={{cssClassName}} #paginatedReportContainer></div>',
+    selector: 'powerbi-paginated-report[embedConfig]',
+    template: '<div class={{cssClassName}} #paginatedReportContainer></div>',
+    standalone: false
 })
 export class PowerBIPaginatedReportEmbedComponent extends PowerBIEmbedComponent implements OnInit, OnChanges, AfterViewInit {
   // Input() specify properties that will be passed from parent
@@ -20,7 +21,7 @@ export class PowerBIPaginatedReportEmbedComponent extends PowerBIEmbedComponent 
   @Input() embedConfig!: IPaginatedReportLoadConfiguration;
 
   // Ref to the HTML div container element
-  @ViewChild('paginatedReportContainer') private containerRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('paginatedReportContainer') private readonly containerRef!: ElementRef<HTMLDivElement>;
 
   // Embedded entity
   // Note: Do not read or assign to this member variable directly, instead use the getter and setter

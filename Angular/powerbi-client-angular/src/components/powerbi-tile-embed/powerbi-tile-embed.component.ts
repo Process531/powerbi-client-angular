@@ -4,14 +4,14 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Embed, ITileEmbedConfiguration, Tile } from 'powerbi-client';
 import { EventHandler, PowerBIEmbedComponent } from '../powerbi-embed/powerbi-embed.component';
-import { isEmbedSetupValid } from '../../utils/utils';
 
 /**
  * Tile component to embed the tile, extends Base component
  */
 @Component({
-  selector: 'powerbi-tile[embedConfig]',
-  template: '<div class={{cssClassName}} #tileContainer></div>',
+    selector: 'powerbi-tile[embedConfig]',
+    template: '<div class={{cssClassName}} #tileContainer></div>',
+    standalone: false
 })
 export class PowerBITileEmbedComponent extends PowerBIEmbedComponent implements OnInit, OnChanges, AfterViewInit {
   // Input() specify properties that will be passed from parent
@@ -22,7 +22,7 @@ export class PowerBITileEmbedComponent extends PowerBIEmbedComponent implements 
   @Input() eventHandlers?: Map<string, EventHandler | null>;
 
   // Ref to the HTML div container element
-  @ViewChild('tileContainer') private containerRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('tileContainer') private readonly containerRef!: ElementRef<HTMLDivElement>;
 
   // Embedded entity
   // Note: Do not read or assign to this member variable directly, instead use the getter and setter

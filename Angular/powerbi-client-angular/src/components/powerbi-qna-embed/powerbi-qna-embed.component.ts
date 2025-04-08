@@ -10,8 +10,9 @@ import { isEmbedSetupValid } from '../../utils/utils';
  * Qna component to embed the Qna visual, extends Base component
  */
 @Component({
-  selector: 'powerbi-qna[embedConfig]',
-  template: '<div class={{cssClassName}} #qnaContainer></div>',
+    selector: 'powerbi-qna[embedConfig]',
+    template: '<div class={{cssClassName}} #qnaContainer></div>',
+    standalone: false
 })
 export class PowerBIQnaEmbedComponent extends PowerBIEmbedComponent implements OnInit, OnChanges, AfterViewInit {
   // Input() specify properties that will be passed from parent
@@ -22,7 +23,7 @@ export class PowerBIQnaEmbedComponent extends PowerBIEmbedComponent implements O
   @Input() eventHandlers?: Map<string, EventHandler | null>;
 
   // Ref to the HTML div container element
-  @ViewChild('qnaContainer') private containerRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('qnaContainer') private readonly containerRef!: ElementRef<HTMLDivElement>;
 
   // Embedded entity
   // Note: Do not read or assign to this member variable directly, instead use the getter and setter

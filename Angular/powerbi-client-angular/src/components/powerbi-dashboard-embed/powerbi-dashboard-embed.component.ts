@@ -10,8 +10,9 @@ import { isEmbedSetupValid } from '../../utils/utils';
  * Dashboard component to embed the dashboard, extends the Base component
  */
 @Component({
-  selector: 'powerbi-dashboard[embedConfig]',
-  template: '<div class={{cssClassName}} #dashboardContainer></div>',
+    selector: 'powerbi-dashboard[embedConfig]',
+    template: '<div class={{cssClassName}} #dashboardContainer></div>',
+    standalone: false
 })
 export class PowerBIDashboardEmbedComponent extends PowerBIEmbedComponent implements OnInit, OnChanges, AfterViewInit {
   // Input() specify properties that will be passed from parent
@@ -22,7 +23,7 @@ export class PowerBIDashboardEmbedComponent extends PowerBIEmbedComponent implem
   @Input() eventHandlers?: Map<string, EventHandler | null>;
 
   // Ref to the HTML div container element
-  @ViewChild('dashboardContainer') private containerRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('dashboardContainer') private readonly containerRef!: ElementRef<HTMLDivElement>;
 
   // Embedded entity
   // Note: Do not read or assign to this member variable directly, instead use the getter and setter

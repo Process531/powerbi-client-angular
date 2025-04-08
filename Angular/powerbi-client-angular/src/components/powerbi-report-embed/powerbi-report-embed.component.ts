@@ -10,8 +10,9 @@ import { isEmbedSetupValid } from '../../utils/utils';
  * Report component to embed the report, extends the Base Component
  */
 @Component({
-  selector: 'powerbi-report[embedConfig]',
-  template: '<div class={{cssClassName}} #reportContainer></div>',
+    selector: 'powerbi-report[embedConfig]',
+    template: '<div class={{cssClassName}} #reportContainer></div>',
+    standalone: false
 })
 export class PowerBIReportEmbedComponent extends PowerBIEmbedComponent implements OnInit, OnChanges, AfterViewInit {
   // Input() specify properties that will be passed from parent
@@ -25,7 +26,7 @@ export class PowerBIReportEmbedComponent extends PowerBIEmbedComponent implement
   @Input() eventHandlers?: Map<string, EventHandler | null>;
 
   // Ref to the HTML div container element
-  @ViewChild('reportContainer') private containerRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('reportContainer') private readonly containerRef!: ElementRef<HTMLDivElement>;
 
   // Embedded entity
   // Note: Do not read or assign to this member variable directly, instead use the getter and setter
