@@ -4,9 +4,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'embed-config-dialog',
-  templateUrl: './embed-config-dialog.component.html',
-  styleUrls: ['./embed-config-dialog.component.css']
+    selector: 'embed-config-dialog',
+    templateUrl: './embed-config-dialog.component.html',
+    styleUrls: ['./embed-config-dialog.component.css'],
+    standalone: false
 })
 
 export class EmbedConfigDialogComponent {

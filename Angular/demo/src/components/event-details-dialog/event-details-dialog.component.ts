@@ -4,9 +4,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'event-details-dialog',
-  templateUrl: './event-details-dialog.component.html',
-  styleUrls: ['./event-details-dialog.component.css']
+    selector: 'event-details-dialog',
+    templateUrl: './event-details-dialog.component.html',
+    styleUrls: ['./event-details-dialog.component.css'],
+    standalone: false
 })
 export class EventDetailsDialogComponent {
   @Input() dataSelectedEventDetails: any;
